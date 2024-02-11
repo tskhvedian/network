@@ -23,6 +23,7 @@ import {
   useSignInAccount,
 } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/AuthContext";
+import Logo from "@/components/shared/Logo";
 
 const SignupForm = () => {
   const { toast } = useToast();
@@ -78,10 +79,7 @@ const SignupForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        <div className="flex flex-row items-center gap-3">
-          <img src="/assets/images/logo.svg" className="h-10" />
-          <span className="text-3xl font-extrabold	">Network</span>
-        </div>
+        <Logo />
         <h2 className="h3-bold md:h2-bold pt-2">Create a new account</h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
           To use Network, please enter your details
