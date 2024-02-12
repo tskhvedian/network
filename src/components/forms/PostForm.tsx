@@ -22,7 +22,7 @@ const formSchema = z.object({
   }),
 });
 
-const PostForm = () => {
+const PostForm = ({ post }) => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -33,8 +33,7 @@ const PostForm = () => {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+ 
     console.log(values);
   }
   return (
@@ -67,7 +66,10 @@ const PostForm = () => {
             <FormItem>
               <FormLabel className="shad-form_label">Add Photos</FormLabel>
               <FormControl>
-                <FileUploader />
+                <FileUploader
+                  fieldChange={field.onChange}
+                  mediaUrl={post?.imageUrl}
+                />
               </FormControl>
 
               <FormMessage className="shad-form_message" />
@@ -88,7 +90,37 @@ const PostForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <FormField
+          control={form.control}
+          name="tags"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="shad-form_label">
+                Add Tags (Separated by Comma " , ")
+              </FormLabel>
+              <FormControl>
+                <Input
+                  type="text"
+                  className="shad-input"
+                  placeholder="Art, Expression, Learn"
+                />
+              </FormControl>
+
+              <FormMessage className="shad-form_message" />
+            </FormItem>
+          )}
+        />
+        <div className="flex items-center gap-4 justify-end">
+          <Button type="button" className="shad-button_dark_4">
+            Cancel
+          </Button>
+          <Button
+            type="submit"
+            className="shad-button_primary whitespace-nowrap"
+          >
+            Submit
+          </Button>
+        </div>
       </form>
     </Form>
   );
