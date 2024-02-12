@@ -33,7 +33,6 @@ const PostForm = ({ post }) => {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
- 
     console.log(values);
   }
   return (
@@ -42,6 +41,24 @@ const PostForm = ({ post }) => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col gap-9 w-full max-w-5xl"
       >
+        <FormField
+          control={form.control}
+          name="file"
+          render={({ field }) => (
+            <FormItem>
+              {/* <FormLabel className="shad-form_label">Add Photos</FormLabel> */}
+              <FormControl>
+                <FileUploader
+                  fieldChange={field.onChange}
+                  mediaUrl={post?.imageUrl}
+                />
+              </FormControl>
+
+              <FormMessage className="shad-form_message" />
+            </FormItem>
+          )}
+        />
+
         <FormField
           control={form.control}
           name="caption"
@@ -59,23 +76,7 @@ const PostForm = ({ post }) => {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="file"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="shad-form_label">Add Photos</FormLabel>
-              <FormControl>
-                <FileUploader
-                  fieldChange={field.onChange}
-                  mediaUrl={post?.imageUrl}
-                />
-              </FormControl>
 
-              <FormMessage className="shad-form_message" />
-            </FormItem>
-          )}
-        />
         <FormField
           control={form.control}
           name="location"
