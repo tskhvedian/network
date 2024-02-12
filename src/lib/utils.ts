@@ -5,6 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+
 export function timeAgo(dateString: string): string {
   const date = new Date(dateString);
   const now = new Date();
@@ -16,7 +17,7 @@ export function timeAgo(dateString: string): string {
   const days = Math.floor(hours / 24);
 
   if (seconds < 60) {
-    return seconds <= 5 ? 'just now' : `${seconds} second${seconds === 1 ? '' : 's'} ago`;
+    return `${seconds} second${seconds === 1 ? '' : 's'} ago`;
   } else if (minutes < 60) {
     return `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
   } else if (hours < 24) {
