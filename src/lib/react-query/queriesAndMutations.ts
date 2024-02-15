@@ -12,7 +12,7 @@ import {
   signOutAccount,
 } from "../appwrite/api";
 import { INewPost, INewUser } from "@/types";
-import { QUERY_KEYS } from "./QueryKeys";
+import { QUERY_KEYS } from "./queryKeys";
 
 export const useCreateUserAccount = () => {
   return useMutation({
