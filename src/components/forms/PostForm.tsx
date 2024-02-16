@@ -23,9 +23,10 @@ import { useToast } from "../ui/use-toast";
 
 type PostFormProps = {
   post?: Models.Document;
+  action: "Create" | "Update";
 };
 
-const PostForm = ({ post }: PostFormProps) => {
+const PostForm = ({ post, action }: PostFormProps) => {
   const { mutateAsync: createPost, isPending: isLoadingCreate } =
     useCreatePost();
   const { user } = useUserContext();
@@ -68,7 +69,7 @@ const PostForm = ({ post }: PostFormProps) => {
           name="file"
           render={({ field }) => (
             <FormItem>
-              {/* <FormLabel className="shad-form_label">Add Photos</FormLabel> */}
+              <FormLabel className="shad-form_label">Add Photo</FormLabel>
               <FormControl>
                 <FileUploader
                   fieldChange={field.onChange}

@@ -13,7 +13,6 @@ const LeftSidebar = () => {
   const { mutate: signOut, isSuccess } = useSignOutAccount();
   const navigate = useNavigate();
   const { user } = useUserContext();
-  console.log(pathname);
 
   useEffect(() => {
     if (isSuccess) navigate(0);
