@@ -51,6 +51,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
       userId: user.id,
     });
     console.log(newPost);
+  
     if (!newPost) {
       toast({
         title: "Please try again",
