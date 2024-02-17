@@ -321,6 +321,6 @@ export async function deletePost(postId?: string, imageId?: string) {
 
     return { status: "Ok" };
   } catch (error) {
-  console.log(error)
+    console.log(error);
   }
 }
