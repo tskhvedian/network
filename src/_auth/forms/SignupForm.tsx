@@ -148,7 +148,7 @@ const SignupForm = () => {
           <Button type="submit" className="shad-button_primary">
             {isCreatingAccount ? (
               <div className="flex-center gap-2">
-                <Loader />
+                <Loader type="defaultLoader" />
                 Loading...
               </div>
             ) : (
