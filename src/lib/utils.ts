@@ -5,7 +5,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function timeAgo(dateString: string): string {
+export function timeAgo(dateString?: string): string {
+  if (!dateString) {
+    return "Invalid date";
+  }
+
   const date = new Date(dateString);
   const now = new Date();
 
@@ -33,6 +37,9 @@ export function timeAgo(dateString: string): string {
     return date.toLocaleDateString(undefined, options);
   }
 }
+
+
+
 
 export const checkIsLiked = (likeList: string[], userId: string) => {
   return likeList.includes(userId);
