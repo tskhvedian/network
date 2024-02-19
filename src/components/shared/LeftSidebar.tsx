@@ -41,7 +41,7 @@ const LeftSidebar = () => {
             return (
               <li
                 key={link.label}
-                className={`leftsidebar-link group ${isActive && "bg-sky-700	"}`}
+                className={`leftsidebar-link group ${isActive && "bg-sky-700"}`}
               >
                 <NavLink
                   to={link.route}
