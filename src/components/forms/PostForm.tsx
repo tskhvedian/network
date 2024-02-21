@@ -88,24 +88,6 @@ const PostForm = ({ post, action }: PostFormProps) => {
       >
         <FormField
           control={form.control}
-          name="file"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="shad-form_label">{action} Photo</FormLabel>
-              <FormControl>
-                <FileUploader
-                  fieldChange={field.onChange}
-                  mediaUrl={post?.imageUrl}
-                />
-              </FormControl>
-
-              <FormMessage className="shad-form_message" />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
           name="caption"
           render={({ field }) => (
             <FormItem>
@@ -114,6 +96,23 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 <Textarea
                   className="shad-textarea custom-scrollbar"
                   {...field}
+                />
+              </FormControl>
+
+              <FormMessage className="shad-form_message" />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="file"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="shad-form_label">{action} Photo</FormLabel>
+              <FormControl>
+                <FileUploader
+                  fieldChange={field.onChange}
+                  mediaUrl={post?.imageUrl}
                 />
               </FormControl>
 

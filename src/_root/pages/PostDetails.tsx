@@ -23,10 +23,6 @@ const PostDetails = () => {
     navigate(-1);
   };
 
-  if(post?.$id === "65d075496d71574f217c"){
-    console.log("KI");
-    
-  }
 
   return (
     <div className="post_details-container">
