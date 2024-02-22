@@ -30,7 +30,6 @@ const Explore = () => {
     !shouldShowSearchResults &&
     posts?.pages.every((item) => item?.documents.length === 0);
 
-  console.log(posts);
 
   return (
     <div className="explore-container">
@@ -66,7 +65,10 @@ const Explore = () => {
       </div>
       <div className="flex flex-wrap gap-9 w-full max-w-5xl">
         {shouldShowSearchResults ? (
-          <SearchResults />
+          <SearchResults
+            isSearchFetching={isSearchFetching}
+            searchedPosts={searchedPosts}
+          />
         ) : shouldShowPosts ? (
           <p className="text-light-4 m-10 text-center w-full">End of Posts</p>
         ) : (
