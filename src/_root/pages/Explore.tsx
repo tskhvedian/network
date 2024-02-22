@@ -9,6 +9,8 @@ import {
 } from "@/lib/react-query/queriesAndMutations";
 import { useState } from "react";
 
+
+
 const Explore = () => {
   const { data: posts, fetchNextPage, hasNextPage } = useGetPosts();
 
@@ -25,7 +27,7 @@ const Explore = () => {
     );
   }
 
-  const shouldShowSearchResults = searchValue !== ""; //should show search results when values is not empty
+  const shouldShowSearchResults = debouncedValue.length >= 3; // Start search after 3 characters
   const shouldShowPosts =
     !shouldShowSearchResults &&
     posts?.pages.every((item) => item?.documents.length === 0);
